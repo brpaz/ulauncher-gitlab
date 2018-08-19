@@ -1,0 +1,31 @@
+{
+    "manifest_version": "2",
+    "api_version": "1",
+    "name": "GitLab",
+    "description": "Quckly access your GitLab Projects and more.",
+    "developer_name": "Bruno Paz",
+    "icon": "images/icon.png",
+    "options": {
+        "query_debounce": 0.5
+    },
+    "preferences": [{
+            "id": "kw",
+            "type": "keyword",
+            "name": "GitLab",
+            "default_value": "glab"
+        },
+        {
+            "id": "url",
+            "type": "input",
+            "name": "GitLab url",
+            "description": "The base url for your GitLab instance. Change this if you are using an On Premise GitLab installation.",
+            "default_value": "https://gitlab.com"
+        }, {
+            "id": "access_token",
+            "type": "input",
+            "name": "Personal Access Token",
+            "description": "The access token required to authenticate on the GitLab API. You can generate it <a href=\"https://gitlab.com/profile/personal_access_tokens\">here</a>",
+            "default_value": ""
+        }
+    ]
+}
