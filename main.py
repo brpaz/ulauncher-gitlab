@@ -219,9 +219,9 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         """ Handles the event """
 
-        query = event.get_argument()
+        query = event.get_argument() or ""
 
-        if query is None:
+        if not query:
             return extension.show_menu()
 
         # Get the action based on the search terms
@@ -247,12 +247,7 @@ class KeywordQueryEventListener(EventListener):
             if groups:
                 return extension.list_groups(groups[0])
 
-            return RenderResultListAction([
-                ExtensionResultItem(icon='images/icon.png',
-                                    name='Please select a valid option',
-                                    highlightable=False,
-                                    on_enter=HideWindowAction())
-            ])
+            return extension.search_projects(query, PROJECTS_SEARCH_TYPE_MEMBER)
 
         except gitlab.GitlabError as e:
             return RenderResultListAction([
