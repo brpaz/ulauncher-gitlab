@@ -20,7 +20,7 @@
 
 * [ulauncher](https://ulauncher.io/)
 * Python-Gitlab package (```pip install python-gitlab```)
-* A [GitLab](https://gitlab.com) account and a [personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
+* A [GitLab](https://gitlab.com) account and a [personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with **api** scope.
 
 ## Install
 
