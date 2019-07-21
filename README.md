@@ -25,7 +25,8 @@
 * [ulauncher](https://ulauncher.io/) V5
 * Python 3 with the following packages:
   * python-gitlab
-* A [GitLab](https://gitlab.com) account and a [personal access token](https://gitlab.com/profile/personal_access_token)
+* A [GitLab](https://gitlab.com) account and a [personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html) with **api** scope.
+
 
 ## Install
 
