@@ -1,10 +1,11 @@
 # Ulauncher GitLab
 
-[![Ulauncher Extension](https://img.shields.io/badge/Ulauncher-Extension-green.svg?style=for-the-badge)](https://ext.ulauncher.io/-/github-brpaz-ulauncher-gitlab)
-[![CircleCI](https://img.shields.io/circleci/build/github/brpaz/ulauncher-gitlab.svg?style=for-the-badge)](https://circleci.com/gh/brpaz/ulauncher-gitlab)
-![License](https://img.shields.io/github/license/brpaz/ulauncher-gitlab.svg?style=for-the-badge)
-
 > Ulauncher extension to interact with [GitLab](https://gitlab.com/).
+
+[![Ulauncher Extension](https://img.shields.io/badge/Ulauncher-Extension-yellowgreen.svg?style=for-the-badge)](https://ext.ulauncher.io/)
+[![CI Status](https://img.shields.io/github/workflow/status/brpaz/ulauncher-gitlab/CI?color=orange&label=actions&logo=github&logoColor=orange&style=for-the-badge)](https://github.com/brpaz/ulauncher-gitlab)
+[![license](https://img.shields.io/github/license/brpaz/ulauncher-gitlab.svg?style=for-the-badge)](LICENSE)
+
 
 ## Demo
 

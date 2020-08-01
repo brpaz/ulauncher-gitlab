@@ -18,9 +18,9 @@ PROJECTS_SEARCH_TYPE_PUBLIC = 'PUBLIC'
 PROJECTS_SEARCH_TYPE_MEMBER = 'MEMBER'
 PROJECTS_SEARCH_TYPE_STARRED = 'STARRED'
 
+
 class GitLabExtension(Extension):
     """ Main extension class """
-
     def __init__(self):
         """ init method """
         LOGGER.info('Initializing GitLab Extension')
@@ -50,51 +50,43 @@ class GitLabExtension(Extension):
                 description=
                 "Your personal menu with shortcuts for your Issues, Merge Requests and more",
                 highlightable=False,
-                on_enter=SetUserQueryAction("%s my" % keyword)
-            ),
+                on_enter=SetUserQueryAction("%s my" % keyword)),
             ExtensionResultItem(
                 icon='images/icon.png',
                 name="Project Search",
                 description=
                 "Search public projects in the entire GitLab platform",
                 highlightable=False,
-                on_enter=SetUserQueryAction("%s search " % keyword)
-            ),
+                on_enter=SetUserQueryAction("%s search " % keyword)),
             ExtensionResultItem(
                 icon='images/icon.png',
                 name="My Projects",
                 description="List the projects you are a member of",
                 highlightable=False,
-                on_enter=SetUserQueryAction("%s projects " % keyword)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name="My Projects (Starred)",
-                description="List your starred projects",
-                highlightable=False,
-                on_enter=SetUserQueryAction("%s starred " % keyword)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name="My Groups",
-                description="List the groups you belong",
-                highlightable=False,
-                on_enter=SetUserQueryAction("%s groups " % keyword)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name="GitLab Website",
-                description="Opens the GitLab website",
-                highlightable=False,
-                on_enter=OpenUrlAction(self.gitlab.url)
-            ),
+                on_enter=SetUserQueryAction("%s projects " % keyword)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name="My Projects (Starred)",
+                                description="List your starred projects",
+                                highlightable=False,
+                                on_enter=SetUserQueryAction("%s starred " %
+                                                            keyword)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name="My Groups",
+                                description="List the groups you belong",
+                                highlightable=False,
+                                on_enter=SetUserQueryAction("%s groups " %
+                                                            keyword)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name="GitLab Website",
+                                description="Opens the GitLab website",
+                                highlightable=False,
+                                on_enter=OpenUrlAction(self.gitlab.url)),
             ExtensionResultItem(
                 icon='images/icon.png',
                 name="GitLab Status",
                 description="Opens the GitLab status page",
                 highlightable=False,
-                on_enter=OpenUrlAction("https://status.gitlab.com")
-            )
+                on_enter=OpenUrlAction("https://status.gitlab.com"))
         ]
 
         return RenderResultListAction(menu)
@@ -115,37 +107,31 @@ class GitLabExtension(Extension):
                 name='Logged in as %s' % self.current_user.username,
                 description='Open "Profile" page in Gitlab',
                 highlightable=False,
-                on_enter=OpenUrlAction('%s/profile' % gitlab_url)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name='My Projects',
-                description='Open "Projects" page in Gitlab',
-                highlightable=False,
-                on_enter=OpenUrlAction('%s/dashboard/projects' % gitlab_url)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name='My Groups',
-                description='Open "Groups" page on GitLab',
-                highlightable=False,
-                on_enter=OpenUrlAction('%s/dashboard/groups' % gitlab_url)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name='My Snippets',
-                description='Open "Snippets" page on GitLab',
-                highlightable=False,
-                on_enter=OpenUrlAction(
-                    '%s/dashboard/snippets' % gitlab_url)
-            ),
-            ExtensionResultItem(
-                icon='images/icon.png',
-                name='My Todos',
-                description='Open "Todos" page on GitLab',
-                highlightable=False,
-                on_enter=OpenUrlAction('%s/dashboard/todos' % gitlab_url)
-            ),
+                on_enter=OpenUrlAction('%s/profile' % gitlab_url)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name='My Projects',
+                                description='Open "Projects" page in Gitlab',
+                                highlightable=False,
+                                on_enter=OpenUrlAction(
+                                    '%s/dashboard/projects' % gitlab_url)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name='My Groups',
+                                description='Open "Groups" page on GitLab',
+                                highlightable=False,
+                                on_enter=OpenUrlAction('%s/dashboard/groups' %
+                                                       gitlab_url)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name='My Snippets',
+                                description='Open "Snippets" page on GitLab',
+                                highlightable=False,
+                                on_enter=OpenUrlAction(
+                                    '%s/dashboard/snippets' % gitlab_url)),
+            ExtensionResultItem(icon='images/icon.png',
+                                name='My Todos',
+                                description='Open "Todos" page on GitLab',
+                                highlightable=False,
+                                on_enter=OpenUrlAction('%s/dashboard/todos' %
+                                                       gitlab_url)),
             ExtensionResultItem(
                 icon='images/icon.png',
                 name='My Issues',
@@ -172,35 +158,29 @@ class GitLabExtension(Extension):
         """ Search projects in GitLab """
 
         if search_type == PROJECTS_SEARCH_TYPE_MEMBER:
-            projects = self.gitlab.projects.list(
-                search=query,
-                membership=1,
-                order_by='name',
-                sort='asc',
-                simple=1,
-                page=1,
-                per_page=10
-            )
+            projects = self.gitlab.projects.list(search=query,
+                                                 membership=1,
+                                                 order_by='name',
+                                                 sort='asc',
+                                                 simple=1,
+                                                 page=1,
+                                                 per_page=10)
         elif search_type == PROJECTS_SEARCH_TYPE_STARRED:
-            projects = self.gitlab.projects.list(
-                search=query,
-                order_by='last_activity_at',
-                sort='desc',
-                starred=1,
-                simple=1,
-                page=1,
-                per_page=10
-            )
+            projects = self.gitlab.projects.list(search=query,
+                                                 order_by='last_activity_at',
+                                                 sort='desc',
+                                                 starred=1,
+                                                 simple=1,
+                                                 page=1,
+                                                 per_page=10)
         else:
-            projects = self.gitlab.projects.list(
-                search=query,
-                visibility='public',
-                order_by='last_activity_at',
-                sort='desc',
-                simple=1,
-                page=1,
-                per_page=10
-            )
+            projects = self.gitlab.projects.list(search=query,
+                                                 visibility='public',
+                                                 order_by='last_activity_at',
+                                                 sort='desc',
+                                                 simple=1,
+                                                 page=1,
+                                                 per_page=10)
 
         if not projects:
             return RenderResultListAction([
@@ -218,14 +198,11 @@ class GitLabExtension(Extension):
             else:
                 description = ''
             items.append(
-                ExtensionResultItem(
-                    icon='images/icon.png',
-                    name=project.name,
-                    description=description,
-                    highlightable=False,
-                    on_enter=OpenUrlAction(project.web_url)
-                )
-            )
+                ExtensionResultItem(icon='images/icon.png',
+                                    name=project.name,
+                                    description=description,
+                                    highlightable=False,
+                                    on_enter=OpenUrlAction(project.web_url)))
 
         return RenderResultListAction(items)
 
@@ -233,14 +210,12 @@ class GitLabExtension(Extension):
         """ Lists the groups the user belongs to """
 
         items = []
-        groups = self.gitlab.groups.list(
-            archived=0,
-            search=query,
-            order_by='name',
-            sort='asc',
-            page=1,
-            per_page=10
-        )
+        groups = self.gitlab.groups.list(archived=0,
+                                         search=query,
+                                         order_by='name',
+                                         sort='asc',
+                                         page=1,
+                                         per_page=10)
 
         if not groups:
             return RenderResultListAction([
@@ -258,14 +233,11 @@ class GitLabExtension(Extension):
                 description = ''
 
             items.append(
-                ExtensionResultItem(
-                    icon='images/icon.png',
-                    name=group.name,
-                    description=description,
-                    highlightable=False,
-                    on_enter=OpenUrlAction(group.web_url)
-                )
-            )
+                ExtensionResultItem(icon='images/icon.png',
+                                    name=group.name,
+                                    description=description,
+                                    highlightable=False,
+                                    on_enter=OpenUrlAction(group.web_url)))
 
         return RenderResultListAction(items)
 
@@ -273,7 +245,6 @@ class GitLabExtension(Extension):
 # # pylint: disable=too-many-return-statements
 class KeywordQueryEventListener(EventListener):
     """ Handles Keyboard input """
-
     def on_event(self, event, extension):
         """ Handles the event """
 
@@ -328,7 +299,6 @@ class PreferencesEventListener(EventListener):
     Listener for prefrences event.
     It is triggered on the extension start with the configured preferences
     """
-
     def on_event(self, event, extension):
         """ Initializes the GitLab client """
         extension.gitlab = gitlab.Gitlab(
@@ -349,7 +319,6 @@ class PreferencesUpdateEventListener(EventListener):
     Listener for "Preferences Update" event.
     It is triggered when the user changes any setting in preferences window
     """
-
     def on_event(self, event, extension):
         if event.id == 'url':
             extension.gitlab.url = event.new_value
