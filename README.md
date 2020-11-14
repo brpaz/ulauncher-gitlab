@@ -24,11 +24,16 @@
 ## Requirements
 
 * [ulauncher](https://ulauncher.io/) V5
-* Python 3 with the following packages:
-  * python-gitlab
 * A [GitLab](https://gitlab.com) account and a [personal access token](https://gitlab.com/profile/personal_access_token)
 
 ## Install
+
+First install all the Python depdendencies needed by this extension:
+
+```sh
+sudo apt install python3-pip
+pip3 install "python-gitlab >=1.5.1,<2.0.0"
+```
 
 Open ulauncher preferences window -> extensions -> add extension and paste the following url:
 
@@ -47,12 +52,28 @@ make dev
 
 ## Contributing
 
-Contributions, issues and Features requests are welcome.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Show your support
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-<a href="https://www.buymeacoffee.com/Z1Bu6asGV" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+## 💛 Support the project
 
+If this project was useful to you in some form, I would be glad to have your support.  It will help to keep the project alive and to have more time to work on Open Source.
+
+The sinplest form of support is to give a ⭐️ to this repo.
+
+You can also contribute with [GitHub Sponsors](https://github.com/sponsors/brpaz).
+
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Sponsor%20Me-red?style=for-the-badge)](https://github.com/sponsors/brpaz)
+
+
+Or if you prefer a one time donation to the project, you can simple:
+
+<a href="https://www.buymeacoffee.com/Z1Bu6asGV" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 ## License
 
 Copywright @ 2019 [Bruno Paz](https://github.com/brpaz)
