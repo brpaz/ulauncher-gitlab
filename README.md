@@ -41,7 +41,7 @@ Open ulauncher preferences window -> extensions -> add extension and paste the f
 
 ## Usage
 
-Before using the extension, you must configure your GitLab access token in the plugin settings. You can yours [here](https://gitlab.com/profile/personal_access_token).
+Before using the extension, you must configure your GitLab access token in the plugin settings. You can yours [here](https://gitlab.com/-/profile/personal_access_tokens).
 
 ## Development
 
