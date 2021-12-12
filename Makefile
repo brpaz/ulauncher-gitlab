@@ -1,5 +1,5 @@
 
-EXT_NAME:=ulauncher-gitlab
+EXT_NAME:=com.github.brpaz.ulauncher-gitlab
 EXT_DIR:=$(shell pwd)
 
 .PHONY: help lint format link unlink deps dev setup

@@ -7,7 +7,8 @@
     "options": {
         "query_debounce": 0.5
     },
-    "preferences": [{
+    "preferences": [
+        {
             "id": "kw",
             "type": "keyword",
             "name": "GitLab",
@@ -19,7 +20,8 @@
             "name": "GitLab url",
             "description": "The base url for your GitLab instance. Change this if you are using an On Premise GitLab installation.",
             "default_value": "https://gitlab.com"
-        }, {
+        },
+        {
             "id": "access_token",
             "type": "input",
             "name": "Personal Access Token",
