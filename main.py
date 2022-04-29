@@ -218,7 +218,6 @@ class GitLabExtension(Extension):
         else:
             projects = self.gitlab.projects.list(
                 search=query,
-                visibility="public",
                 order_by="last_activity_at",
                 sort="desc",
                 simple=1,
